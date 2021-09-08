@@ -75,16 +75,17 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                height: context.highValue * 5,
+                height: context.highValue * 6,
                 padding: EdgeInsets.only(left: context.mediumValue),
                 child: Swiper(
                   itemCount: planets.length,
-                  itemWidth: MediaQuery.of(context).size.width - 2 * 64,
+                  itemWidth: context.width - 2 * 64,
+                  itemHeight: context.height - 2 * 64,
                   layout: SwiperLayout.STACK,
                   pagination: SwiperPagination(
                     builder: DotSwiperPaginationBuilder(
-                      activeSize: 20,
-                      space: 8,
+                      activeSize: 15,
+                      space: 5,
                     ),
                   ),
                   itemBuilder: (context, index) {
@@ -92,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Column(
                           children: [
-                            SizedBox(height: context.highValue),
+                            SizedBox(height: context.highValue * 1.5),
                             Card(
                               elevation: 8,
                               shape: RoundedRectangleBorder(
@@ -106,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     SizedBox(
-                                      height: context.highValue,
+                                      height: context.highValue*1.1,
                                     ),
                                     Text(
                                       planets[index].name,
@@ -153,13 +154,10 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: context.lowValue,
-                            ),
                           ],
                         ),
                         Padding(
-                          padding: context.paddingNormal,
+                          padding: context.paddingMedium,
                           //const EdgeInsets.all(30.0),
                           child: Image.asset(planets[index].iconImage),
                         ),
