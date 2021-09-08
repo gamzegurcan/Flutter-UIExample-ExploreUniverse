@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:explore_universe/core/constants/app_constants.dart';
 import 'package:explore_universe/core/constants/color_constants.dart';
+import 'package:explore_universe/core/extensions/context_extensions.dart';
 import 'package:explore_universe/features/model/universe_model_locale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -31,7 +32,8 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(32.0),
+                padding: context.paddingMedium,
+                //const EdgeInsets.all(32.0),
                 child: Column(
                   children: [
                     Text(
@@ -61,7 +63,8 @@ class _HomePageState extends State<HomePage> {
                       ],
                       onChanged: (value) {},
                       icon: Padding(
-                        padding: EdgeInsets.only(left: 16),
+                        padding: context.paddingNormal,
+                        //EdgeInsets.only(left: 16),
                         child: Image(
                             image:
                                 AssetImage('assets/images/drop_down_icon.png')),
@@ -72,8 +75,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                height: 400,
-                padding: const EdgeInsets.only(left: 32),
+                height: context.highValue * 5,
+                padding: EdgeInsets.only(left: context.mediumValue),
                 child: Swiper(
                   itemCount: planets.length,
                   itemWidth: MediaQuery.of(context).size.width - 2 * 64,
@@ -89,9 +92,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Column(
                           children: [
-                            SizedBox(
-                              height: 75,
-                            ),
+                            SizedBox(height: context.highValue),
                             Card(
                               elevation: 8,
                               shape: RoundedRectangleBorder(
@@ -99,18 +100,19 @@ class _HomePageState extends State<HomePage> {
                               ),
                               color: Colors.white,
                               child: Padding(
-                                padding: const EdgeInsets.all(32.0),
+                                padding: context.paddingMedium,
+                                //const EdgeInsets.all(32.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     SizedBox(
-                                      height: 75,
+                                      height: context.highValue,
                                     ),
                                     Text(
                                       planets[index].name,
                                       style: TextStyle(
                                         fontFamily: 'Avenir',
-                                        fontSize: 44,
+                                        fontSize: 40,
                                         color: primaryTextColor,
                                         fontWeight: FontWeight.w900,
                                       ),
@@ -127,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                                       textAlign: TextAlign.left,
                                     ),
                                     SizedBox(
-                                      height: 20,
+                                      height: context.normalValue,
                                     ),
                                     Row(
                                       children: [
@@ -151,9 +153,16 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                             ),
+                            SizedBox(
+                              height: context.lowValue,
+                            ),
                           ],
                         ),
-                        Image.asset(planets[index].iconImage),
+                        Padding(
+                          padding: context.paddingNormal,
+                          //const EdgeInsets.all(30.0),
+                          child: Image.asset(planets[index].iconImage),
+                        ),
                       ],
                     );
                   },
@@ -170,7 +179,8 @@ class _HomePageState extends State<HomePage> {
           ),
           color: navigationColor,
         ),
-        padding: const EdgeInsets.all(12),
+        padding: context.paddingLow,
+        //const EdgeInsets.all(12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
