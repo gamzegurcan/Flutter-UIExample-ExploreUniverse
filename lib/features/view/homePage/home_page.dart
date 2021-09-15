@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:explore_universe/core/constants/app_constants.dart';
 import 'package:explore_universe/core/constants/color_constants.dart';
 import 'package:explore_universe/core/extensions/context_extensions.dart';
-import 'package:explore_universe/features/model/universe_model_locale.dart';
+import 'package:explore_universe/features/model/universe.dart';
 import 'package:explore_universe/features/view/detailPage/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
